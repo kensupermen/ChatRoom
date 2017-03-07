@@ -1,0 +1,14 @@
+<h1>Welcome</h1>
+
+<p>Choose your room</p>
+
+<ul>
+  <% @rooms.each do |room| %>
+    <li><%= room.name %></li>
+<% end %>
+</ul>
+
+<%= form_for Room.new do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit nil, class: 'btn btn-primary' %>
+<% end %>
