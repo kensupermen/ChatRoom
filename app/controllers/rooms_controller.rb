@@ -11,12 +11,13 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find_by(id: params[:id])
+    @messages = @room.messages
   end
 
   private 
 
   def room_params
-    params.require(:room).permit(:name)
+    params.require(:room).permit(:name, :messages_attributes => [:username, :body])
   end
 
 end
